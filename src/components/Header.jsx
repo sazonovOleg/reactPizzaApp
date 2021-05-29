@@ -3,7 +3,7 @@ import logo from "../assets/img/pizza-logo.svg";
 import Button from "./Button";
 
 
-function Header() {
+export default function Header() {
     return (
         <div className="header">
             <div className="container">
@@ -21,5 +21,3 @@ function Header() {
         </div>
     )
 }
-
-export default Header
