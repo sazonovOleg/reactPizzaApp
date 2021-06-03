@@ -1,14 +1,15 @@
 import React from "react"
 import classNames from "classnames";
-//30min
 
-export default function Button(props) {
+export default function Button({ onClick,className,outline, children }) {
     return (
-        <button className={classNames('button', props.className,
+        <button
+            onClick = {onClick}
+            className={classNames('button', className,
             {
-                'button--cart': props.cartStyle,
+                'button--outline': outline,
             })}>
-            {props.children}
+            {children}
         </button>
     )
 }

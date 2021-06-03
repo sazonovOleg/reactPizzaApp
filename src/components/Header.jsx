@@ -1,10 +1,12 @@
 import React from "react";
 import logo from "../assets/img/pizza-logo.svg";
-import Button from "./Button";
-import classNames from "classnames";
+import {Button} from "./";
 
 
 export default function Header() {
+    function hello() {
+        console.log('hello')
+    }
     return (
         <div className="header">
             <div className="container">
@@ -16,8 +18,8 @@ export default function Header() {
                     </div>
                 </div>
                 <div className="header__cart">
-                    <Button className="button--cart">
-                        <span>0₽</span>
+                    <Button className="button--cart" outline onClick={hello}>
+                        <span>0 ₽</span>
                         <div className="button__delimiter"></div>
                         <svg
                             width="18"
