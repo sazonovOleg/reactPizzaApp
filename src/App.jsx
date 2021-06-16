@@ -1,5 +1,7 @@
 import React from 'react';
-import {Header, Content} from "./components";
+import {Header} from "./components";
+import {Home, Cart} from "./components/pages/";
+import { Route } from "react-router-dom"
 
 export default class App extends React.Component{
     render() {
@@ -7,7 +9,10 @@ export default class App extends React.Component{
             <div className="App">
                 <div className="wrapper">
                     <Header/>
-                    <Content/>
+                    <div className="content">
+                        <Route path="/" component={Home} exact/>
+                        <Route path="/cart" component={Cart}/>
+                    </div>
                 </div>
             </div>
         );
