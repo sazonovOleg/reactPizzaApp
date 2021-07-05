@@ -11,9 +11,9 @@ export default function Home({items}) {
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">
                 {
-                    items.map((obj) => ( console.log(obj.name),
+                    items.map((obj) => (
                         <PizzaBlock
-                            key={`${obj.name}_${obj.id}`}
+                            key={obj.id}
                             {...obj}
                         />))
                 }

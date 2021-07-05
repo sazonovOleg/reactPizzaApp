@@ -1,5 +1,4 @@
 import React from 'react';
-import index from "classnames";
 
 //разобрали React.useRef 1.20
 
@@ -33,7 +32,7 @@ export default function SortPopup({items}) {
         <div ref={sortRef} className="sort">
             <div className="sort__label">
                 <svg
-                    className={ visiblePopup == true ? 'rotated' : '' }
+                    className={ visiblePopup === true ? 'rotated' : '' }
                     width="10"
                     height="6"
                     viewBox="0 0 10 6"
