@@ -15,8 +15,6 @@ const store = createStore(counter);
 
 store.subscribe(() => console.log('хранилище 1',store.getState()))
 
-console.log(store.getState())
-
 store.dispatch({ type: 'counter/incremented' })
 store.dispatch({ type: 'counter/incremented' })
 
