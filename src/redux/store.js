@@ -1,21 +1,10 @@
 import { createStore } from 'redux';
 
-function counter(state = { value: 0 }, action) {
-    switch (action.type) {
-        case 'counter/incremented':
-            return { value: state.value + 1 }
-        case 'counter/decremented':
-            return { value: state.value - 1 }
-        default:
-            return state
-    }
-}
+import rootReducer from "./reducer";
 
-const store = createStore(counter);
+//window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() соединяем с расширением для google chrome
+const store = createStore(rootReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-store.subscribe(() => console.log('хранилище 1',store.getState()))
-
-store.dispatch({ type: 'counter/incremented' })
-store.dispatch({ type: 'counter/incremented' })
+window.store = store;
 
 export default store
