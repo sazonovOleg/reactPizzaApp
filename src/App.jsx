@@ -1,59 +1,33 @@
 import React from 'react';
 import axios from "axios";
-import {connect} from "react-redux";
+import {useDispatch} from "react-redux";
 
 import {Header} from "./components";
 import {Home, Cart} from "./components/pages/";
-import {Route} from "react-router-dom"
-import {setPizzas as setPizzasAction} from "./redux/actions/pizzas";
+import {Route} from "react-router-dom";
+import {setPizzas} from "./redux/actions/pizzas";
 
-// export default function App() {
-//     React.useEffect(() => {
-//         axios.get('http://localhost:3000/db.json').then(({data}) => {
-//             setPizzas(data.pizzas)
-//         });
-//     }, []);
-//
-//     return ;
-// }
+export default function App() {
+    const dispatch = useDispatch();
 
-//2.03 переписываем классовый компонент апп на хуки
-
-class App extends React.Component {
-    componentDidMount() {
+    React.useEffect(() => {
         axios.get('http://localhost:3000/db.json').then(({data}) => {
-            this.props.setPizzas(data.pizzas)
+            dispatch(setPizzas(data.pizzas))
         });
-    }
+    })
 
-    render() {
-        return (
-            <div className="App">
-                <div className="wrapper">
-                    <Header/>
-                    <div className="content">
-                        <Route path="/" render={() => <Home items={this.props.items}/>} exact/>
-                        <Route path="/cart" component={Cart}/>
-                    </div>
+    return (
+        <div className="App">
+            <div className="wrapper">
+                <Header/>
+                <div className="content">
+                    <Route path="/" component={Home} exact/>
+                    <Route path="/cart" component={Cart}/>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
-
-const mapStateToProps = (state) => {
-    return {
-        items: state.pizzas.items
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        setPizzas: (items) => dispatch(setPizzasAction(items))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
 
 //вариант получения данных через fetch
 // React.useEffect(() => {

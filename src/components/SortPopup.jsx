@@ -1,8 +1,6 @@
 import React from 'react';
 
-//разобрали React.useRef 1.20
-
-export default function SortPopup({items}) {
+const SortPopup = React.memo( function SortPopup({items}) {
     const [visiblePopup, setVisiblePopup] = React.useState(false);
     const [activeItem, setActiveItem] = React.useState(0);
     const sortRef = React.useRef();
@@ -19,9 +17,7 @@ export default function SortPopup({items}) {
     }
 
     React.useEffect(() => {
-        //почитать документацию про этот хук
         document.body.addEventListener('click', handleOutsideClick);
-        console.log(sortRef.current)
     },[])
 
     const toggleVisiblePopup = () => {
@@ -45,22 +41,26 @@ export default function SortPopup({items}) {
                     />
                 </svg>
                 <b>Сортировка по:</b>
-                    <span onClick={() => { toggleVisiblePopup()}}>
+                <span onClick={() => { toggleVisiblePopup()}}>
                         {activeLabel}
                     </span>
             </div>
             {visiblePopup && <div className="sort__popup">
                 <ul>
                     {items && items.map((obj,index) =>
-                    <li
-                        className={ activeItem === index ? 'active' : '' }
-                        key={`${obj.type}_${index}`}
-                        onClick={() => onSelectItem(index)}>
-                        {obj.name}
-                    </li>
+                        <li
+                            className={ activeItem === index ? 'active' : '' }
+                            key={`${obj.type}_${index}`}
+                            onClick={() => onSelectItem(index)}>
+                            {obj.name}
+                        </li>
                     )}
                 </ul>
             </div>}
         </div>
     );
-}
+})
+
+
+
+export default SortPopup;
