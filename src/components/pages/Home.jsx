@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {setCategory} from '../../redux/actions/filters';
 
-//1.52
+//2.04
 
 const categoryNames = ['Мясные', 'Вегетарианские', 'Гриль', 'Острые', 'Закрытые'];
 const sortItems = [
