@@ -8,11 +8,6 @@ import store from './redux/store';
 import './scss/app.scss';
 import App from './App.jsx';
 
-store.dispatch({
-    type: 'SET_SORT_BY',
-    payload: 'price'
-})
-
 ReactDOM.render(
     <React.StrictMode>
         <Router>
