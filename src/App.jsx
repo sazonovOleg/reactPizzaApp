@@ -1,8 +1,8 @@
 import React from 'react';
-import {Route} from "react-router-dom";
 
 import {Header} from "./components";
 import {Home, Cart} from "./components/pages/";
+import {Route} from "react-router-dom";
 
 export default function App() {
     return (

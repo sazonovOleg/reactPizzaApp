@@ -1,12 +1,10 @@
 import {createStore, compose, applyMiddleware} from 'redux';
 import thunk from "redux-thunk";
 
-import rootReducer from "./reducer";
+import rootReducer from "./reducers";
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-//window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() соединяем с расширением для google chrome
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk))
-);
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
-export default store
+export default store;

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import classNames from 'classnames';
+import {PizzaBlock} from "../index";
 
 export default function Index({name, imageUrl, price, types, sizes}) {
     const availabelTypes = ['тонкое', 'традиционное'];
@@ -14,7 +15,6 @@ export default function Index({name, imageUrl, price, types, sizes}) {
     const onSelectSize = (index) => {
         setActiveSize(index)
     }
-
 
     return (
         <div className="pizza-block">
@@ -69,19 +69,4 @@ export default function Index({name, imageUrl, price, types, sizes}) {
             </div>
         </div>
     );
-}
-
-Index.propTypes = {
-    name: PropTypes.string.isRequired,
-    imageUrl: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    types: PropTypes.arrayOf(PropTypes.number),
-    sizes: PropTypes.arrayOf(PropTypes.number)
-}
-
-Index.defaultProps = {
-    name: '---',
-    price: 0,
-    types: [],
-    sizes: []
 }
