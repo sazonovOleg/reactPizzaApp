@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from "prop-types";
 import classNames from 'classnames';
-import {PizzaBlock} from "../index";
 
 export default function Index({name, imageUrl, price, types, sizes}) {
     const availabelTypes = ['тонкое', 'традиционное'];
