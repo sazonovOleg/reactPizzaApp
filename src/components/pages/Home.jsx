@@ -18,12 +18,9 @@ export default function Home() {
     const isLoaded = useSelector(({pizzas}) => pizzas.isLoaded);
     const { category, sortBy } = useSelector(({filters}) => filters);
 
-    console.log(sortBy)
-
     React.useEffect(() => {
         dispatch(fetchPizzas(sortBy, category));
-    },[category, sortBy])
-
+    },[category, sortBy]);
 
     const onSelectCategory = React.useCallback((index) => {
         dispatch(setCategory(index));
@@ -51,7 +48,6 @@ export default function Home() {
                     isLoaded
                         ? items.map((obj) => (<PizzaBlock key={obj.id}{...obj} />))
                         : Array(10).fill(0).map((_,index) => <PizzaLoadingBlock key={index}/>)
-                    //1.20
                 }
             </div>
         </div>
